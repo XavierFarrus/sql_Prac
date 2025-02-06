@@ -84,5 +84,22 @@ SELECT s.Color, ROUND(COUNT(*) / COUNT(DISTINCT s.ArenaName)) AS average_seats
 FROM seat AS s
 GROUP BY s.Color;
 
--- 10 Quin és el nom de l’equip que ha guanyat més partits com a visitant?
+-- 10 Retorna els entrenadors principals amb el seu rendiment segons el salari (rendiment = (VictoryPercentage / 100) * (Salary / 1000)), tallant els decimals que resultin. Quin és el rendiment de l'entrenador 100000004?
 
+
+SELECT p.Name, ROUND((VictoryPercentage / 100) * (Salary / 1000)) AS Rendimiento 
+FROM person AS p 
+JOIN headcoach AS h ON p.IDCard = h.IDCard 
+WHERE h.IDCard = 100000004;
+
+-- 11 Per cada equip retorna quantes vegades ha guanyat. Sempre que siguin 3 vegades o més. Quantes files retorna el select?
+
+SELECT f.Name, COUNT(*)
+FROM franchise AS f 
+JOIN franchise_season AS fs ON fs.FranchiseName = f.Name 
+WHERE fs.IsWinner = 1
+GROUP BY f.Name
+HAVING COUNT(*) >= 3; 
+
+
+-- 12 Retorna amb el país i any els equips nacionals amb el nom i cognom del seu entrenador. Fes-ho pels anys del 2010 al 2015 i pels països que comencin per A. Quants entrenadors retorna la consulta?
