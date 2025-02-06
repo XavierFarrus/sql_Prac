@@ -18,7 +18,8 @@ JOIN franquicia f ON p.idcard = f.idcardcoach
 WHERE f.name = 'Utah Jazz';
 
 -- 3 Troba el nom de la franquícia amb el pressupost més gran.
-SELECT f.name FROM franchise f ORDER BY f.budget DESC LIMIT 1;
+SELECT f.name FROM franchise ORDER BY f.budget DESC LIMIT 1;
+
 
 
 -- 4 Llista les arenes (noms i ciutats) de les franquícies de la conferència oest. Quin és el nom de la 5a ciutat? ERIK
