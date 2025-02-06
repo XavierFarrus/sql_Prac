@@ -104,3 +104,11 @@ HAVING COUNT(*) >= 3;
 -- 12 Retorna amb el país i any els equips nacionals amb el nom i cognom del seu entrenador. Fes-ho pels anys del 2010 al 2015 i pels països que comencin per A. Quants entrenadors retorna la consulta?
 
 --13 Per un any específic retorna per cada equip la suma dels salaris dels seus jugadors. Asumeix que tots els jugadors que tenen un contracte en qualsevol data de l'any 2007 s'ha de contabilitzar. Quin és el presupost dels Houston Rockets?
+SELECT pf.FranchiseName, SUM(pf.Salary) AS total_salary
+FROM PLAYER_FRANCHISE pf
+WHERE pf.FranchiseName = 'Houston Rockets'
+AND (
+    pf.StartContract <= '2007-12-31' 
+    AND pf.EndContract >= '2007-01-01'
+)
+GROUP BY pf.FranchiseName;
