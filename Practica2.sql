@@ -17,8 +17,8 @@ FROM person p
 JOIN franquicia f ON p.idcard = f.idcardcoach
 WHERE f.name = 'Utah Jazz';
 
--- 3 Troba el nom de la franquícia amb el pressupost més gran.
-SELECT f.name FROM franchise ORDER BY f.budget DESC LIMIT 1;
+-- 3 Troba el nom de la franquícia amb el pressupost més gran. MARCO
+SELECT f.name FROM franchise f ORDER BY f.budget DESC LIMIT 1;
 
 
 
