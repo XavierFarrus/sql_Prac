@@ -66,6 +66,11 @@ WHERE p.BirthDate <= '1980-03-01' AND p.Surname = 'Lue'
 ORDER BY p.BirthDate DESC
 LIMIT 1;
 
+-- 7 
+SELECT VIPSeats
+FROM ArenaTable
+WHERE ArenaName = 'Madison Square Garden';
+
 
 -- 8 Tenim guardat els colors dels seients de tots els estadis. Retorna quants seients blaus hi ha en total.
 
