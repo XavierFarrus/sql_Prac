@@ -121,4 +121,12 @@ GROUP BY pf.FranchiseName;
 
 --15Crea un informe amb tots els jugadors que no son dels Estats Units ni d'Espanya. Inclou-ne tota la seva informació personal completa. Ordena els resultats per nacionalitat i data de naixement ascendent. Quina és la ID del terncer juador retornat?
 
+
 --16 Mostra un informe amb el nom, cognom i data de naixement de tots els caps d'entrenadors assistents de l'especialitat de psicologia sense repetits i que tenen una data de naixement registrada. Ordena per cognom i nom. Quin és l'any de naixement del tercer resultat?
+SELECT DISTINCT Name, Surname, YEAR(p.BirthDate) AS BirthYear
+FROM assistantcoach AS asis
+JOIN person AS p ON asis.IDCard = p.IDCard
+WHERE asis.Especiality = 'Psychologist' 
+AND p.BirthDate IS NOT NULL
+ORDER BY p.Name ASC, p.Surname ASC
+LIMIT 1 OFFSET 2;
